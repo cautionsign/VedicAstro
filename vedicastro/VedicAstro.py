@@ -401,12 +401,12 @@ class VedicHoroscopeData:
 
         # Group by 'Rasi' and aggregate all columns into a list or first non-null value
         result_df = df_concat.group_by('Rasi').agg([
-            pl.col('Object').map_elements(list, return_dtype=pl.Object).alias('Object'),
-            pl.col('isRetroGrade').map_elements(list, return_dtype=pl.Object).alias('isRetroGrade'),
-            pl.col('LonDecDeg').map_elements(list, return_dtype=pl.Object).alias('LonDecDeg'),
-            pl.col('SignLonDMS').map_elements(list, return_dtype=pl.Object).alias('SignLonDMS'),
-            pl.col('SignLonDecDeg').map_elements(list, return_dtype=pl.Object).alias('SignLonDecDeg'),
-            # pl.col('LatDMS').map_elements(list, return_dtype=pl.Object).alias('LatDMS')
+            pl.col('Object').alias('Object'),
+            pl.col('isRetroGrade').alias('isRetroGrade'),
+            pl.col('LonDecDeg').alias('LonDecDeg'),
+            pl.col('SignLonDMS').alias('SignLonDMS'),
+            pl.col('SignLonDecDeg').alias('SignLonDecDeg'),
+            # pl.col('LatDMS').alias('LatDMS')
         ])
 
         ## Sort by Rashis Order from `Aries` to `Pisces` in Clockwise Order
